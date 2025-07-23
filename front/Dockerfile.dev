@@ -1,14 +1,8 @@
-# Используй официальный образ Node.js
 FROM node:20-alpine
 
 WORKDIR /app
 
 COPY package*.json ./
 RUN npm install
-
-# Копируем исходники, чтобы был доступ к начальной структуре (node_modules)
-COPY . .
-
-EXPOSE 3000
 
 CMD ["npm", "run", "dev"]

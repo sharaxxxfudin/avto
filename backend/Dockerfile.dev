@@ -1,22 +1,9 @@
-# Используй официальный образ Node.js
 FROM node:20-alpine
 
 WORKDIR /app
 
-# Копируем только package.json и package-lock.json
-COPY package.json package-lock.json ./
+COPY package*.json ./
+RUN npm install
 
-# Устанавливаем зависимости (без dev-зависимостей)
-RUN npm ci --omit=dev
-
-# Копируем весь исходный код
-COPY . .
-
-# Собираем проект
-RUN npm run build
-
-# Открываем порт (изменить если не 4000)
-EXPOSE 4000
-
-# Запускаем приложение
-CMD ["npm", "run", "start"]
+# Остальное будет примонтировано через volume
+CMD ["npm", "run", "dev"]

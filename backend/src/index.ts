@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 1337;
 
 app.use(
   cors({
-    origin: ["http://avtostatus.com", "http://localhost:3000"],
+    origin: ["https://avtostatus.com", "http://localhost:3000"],
     credentials: true,
   })
 );

@@ -1,3 +1,4 @@
+
 services:
   backend:
     build:
@@ -10,15 +11,17 @@ services:
       - ./backend/.env
     ports:
       - "4000:4000"
+    command: sh -c "npm install && npm run dev"
 
   frontend:
     build:
-      context: ./frontend
+      context: ./front
       dockerfile: Dockerfile.dev
     volumes:
-      - ./frontend:/app
+      - ./front:/app
       - /app/node_modules
     env_file:
-      - ./frontend/.env
+      - ./front/.env
     ports:
       - "3000:3000"
+    command: sh -c "npm install && npm run dev"
