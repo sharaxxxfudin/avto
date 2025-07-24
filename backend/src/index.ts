@@ -4,7 +4,7 @@ import actionRoutes from "./routes/api/action/action.route";
 import entryRoutes from "./routes/api/entry/entry.route";
 
 const app = express();
-const PORT = process.env.PORT || 1337;
+const PORT = process.env.PORT || 4000;
 
 app.use(
   cors({
